@@ -82,10 +82,16 @@ final_value = [all_values]
 
 # Make prediction
 # --- Make prediction with probabilities ---
+# --- Make prediction with probabilities ---
 prob = model.predict_proba(final_value)[0]  # [prob_no_disease, prob_disease]
 
-# Set threshold (default 0.5, but we can lower it to be more sensitive)
-threshold = 0.3  
+# Let user adjust threshold in sidebar
+threshold = st.sidebar.slider(
+    "Select Threshold for Disease Prediction", 
+    min_value=0.1, max_value=0.9, value=0.5, step=0.05
+)
+
+# Apply threshold
 ans = 1 if prob[1] > threshold else 0
 
 # Progress bar animation
@@ -102,20 +108,4 @@ for i in range(100):
     progress_bar.progress(i + 1)
 
 # Display results
-if ans == 0:
-    body = '✅ No Lung Disease Detected'
-    placeholder.empty()
-    place.empty()
-    st.success(body)
-else:
-    body = '⚠️ Lung Disease Found'
-    placeholder.empty()
-    place.empty()
-    st.warning(body)
-
-# Show probabilities for transparency
-st.subheader("Prediction Probabilities:")
-st.write(f"**No Disease Probability:** {prob[0]*100:.2f}%")
-st.write(f"**Disease Probability:** {prob[1]*100:.2f}%")
-st.caption(f"*(Using threshold = {threshold}. If Disease probability > {threshold}, we predict 'Disease')*")
-
+if ans ==
