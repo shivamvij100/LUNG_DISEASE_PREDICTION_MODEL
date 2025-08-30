@@ -90,7 +90,7 @@ placeholder = st.empty()
 placeholder.subheader('Predicting Lung Disease') 
 
 place = st.empty()
-place.image('https://i.makeagif.com/media/1-17-2024/dw-jXM.gif', width=200)
+place.image('https://www.shutterstock.com/image-vector/cartoon-sad-suffering-sick-lungs-600nw-2238775831.jpg', width=200)
 
 for i in range(100):
     time.sleep(0.05)
@@ -111,3 +111,4 @@ else:
     progress_bar = st.progress(0)
 
 st.markdown('Designed by: **SHIVAM VIJ**')
+
