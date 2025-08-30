@@ -40,7 +40,7 @@ Algorithms Used:
 st.markdown(data)
 
 # Update image to a lung-related illustration
-st.image('https://img.freepik.com/premium-vector/lungs-human-anatomy-icon-isolated-white-background_53562-14619.jpg')
+st.image('https://media.istockphoto.com/id/1192036561/vector/cute-cartoon-funny-lungs-character-with-dumbbells-strong-smiling-lung-human-respiratory.jpg?s=612x612&w=0&k=20&c=O5FXi6cGHSkwmGv1xtJNBQXLI3BUerRHTnD9Kg2Ndn8=')
 
 # Load trained model
 with open('lung_disease_pred.pkl','rb') as f:
@@ -111,4 +111,5 @@ else:
     progress_bar = st.progress(0)
 
 st.markdown('Designed by: **SHIVAM VIJ**')
+
 
