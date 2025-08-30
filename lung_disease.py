@@ -81,18 +81,7 @@ for col in df.columns[:-1]:  # Loop through all feature columns except target
 final_value = [all_values]
 
 # Make prediction
-# --- Make prediction with probabilities ---
-# --- Make prediction with probabilities ---
-prob = model.predict_proba(final_value)[0]  # [prob_no_disease, prob_disease]
-
-# Let user adjust threshold in sidebar
-threshold = st.sidebar.slider(
-    "Select Threshold for Disease Prediction", 
-    min_value=0.1, max_value=0.9, value=0.5, step=0.05
-)
-
-# Apply threshold
-ans = 1 if prob[1] > threshold else 0
+ans = model.predict(final_value)[0]
 
 # Progress bar animation
 random.seed(132)
@@ -108,4 +97,19 @@ for i in range(100):
     progress_bar.progress(i + 1)
 
 # Display results
-if ans ==
+if ans == 0:
+    body = 'No Lung Disease Detected'
+    placeholder.empty()
+    place.empty()
+    st.success(body)
+    progress_bar = st.progress(0)
+else:
+    body = 'Lung Disease Found'
+    placeholder.empty()
+    place.empty()
+    st.warning(body)
+    progress_bar = st.progress(0)
+
+st.markdown('Designed by: **SHIVAM VIJ**')
+
+
